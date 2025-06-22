@@ -49,7 +49,7 @@ class MapCanvasWidget extends ConsumerWidget {
         return GestureDetector(
           onTap: () {
             notifier.updateTile(x, y, selectedTerrain);
-            ref.read(selectedTileProvider.notifier).state = (x: x, y: y);
+            ref.read(selectedTileProvider.notifier).state = (x, y);
           },
           child: Container(
             margin: const EdgeInsets.all(1),
