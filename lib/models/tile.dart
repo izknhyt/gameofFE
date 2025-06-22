@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'tile.g.dart';
+
+@JsonSerializable()
 class Tile {
   final String terrainType;
   final Map<String, dynamic> effects;
@@ -5,15 +10,7 @@ class Tile {
   Tile({required this.terrainType, Map<String, dynamic>? effects})
       : effects = effects ?? {};
 
-  factory Tile.fromJson(Map<String, dynamic> json) {
-    return Tile(
-      terrainType: json['terrainType'] as String,
-      effects: Map<String, dynamic>.from(json['effects'] as Map? ?? {}),
-    );
-  }
+  factory Tile.fromJson(Map<String, dynamic> json) => _$TileFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        'terrainType': terrainType,
-        'effects': effects,
-      };
+  Map<String, dynamic> toJson() => _$TileToJson(this);
 }
